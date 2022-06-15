@@ -15,24 +15,6 @@ main {
     margin: 20px;
 }
 
-footer {
-    margin: 0 20px 20px 20px;
-}
-
-.btn {
-    background-color: #494b51;
-    color: #61afef;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px 10px;
-    transition: 200ms;
-}
-
-.btn:hover {
-    background-color: #3a3c41;
-}
-
 .post {
     background-color: #3a3c41;
     margin-bottom: 20px;

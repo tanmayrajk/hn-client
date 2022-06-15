@@ -1,6 +1,23 @@
-export const nextBtn = document.getElementById('nextbtn')
-export const prevBtn = document.getElementById('prevbtn')
+let posts
+let currentIndex = 0
 
+export function init(info) {
+    getPosts(info["page"]).then(data => {
+        posts = data
+        loadPosts(20)
+    })
+}
+
+window.addEventListener('scroll', () => {
+    const { scrollTop, scrollHeight, clientHeight} = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight) {
+        loadPosts(20)
+    }}, { passive: true });
+
+async function getPosts(page) {
+    let res = await fetch(`https://hacker-news.firebaseio.com/v0/${page}stories.json`)
+    return res.json()
+}
 
 async function createPost(id, index) {
     let res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
@@ -59,15 +76,9 @@ async function createPost(id, index) {
     })
 }
 
-export async function loadNextPosts(posts, start, count) {
+async function loadPosts(count) {
     for (let i = 0; i < count; i++) {
-        let a = await createPost(posts[i+start], i+1+start)
-    }
-}
-
-export async function loadPrevPosts(posts, start, count) {
-    for (let i = 0; i < count; i++) {
-        let l = start - count + i + 1
-        let a = await createPost(posts[l], l)
+        currentIndex += 1
+        await createPost(posts[currentIndex-1], currentIndex)
     }
 }
