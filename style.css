@@ -55,7 +55,6 @@ footer {
 }
 
 .postbody {
-    align-items: center;
     padding: 15px;
 }
 
@@ -68,10 +67,11 @@ footer {
     color: #ddd;
     font-size: 13px;
     margin-top: 7px;
+    word-break: break-word;
 }
 
 .posttext a {
-    color: #61afef
+    color: #61afef;
 }
 
 
