@@ -7,6 +7,8 @@ async function createPost(id, index) {
     res.json()
     .then(data => {
         
+        if (data["type"] === "poll") return
+
         const main = document.getElementsByTagName("main")
 
         const postDiv = document.createElement("div")
@@ -35,7 +37,11 @@ async function createPost(id, index) {
 
         const postHeadDiv = document.createElement("h4")
         postHeadDiv.className = "posthead"
-        postHeadDiv.innerHTML = `<a href="${data["url"]}">${data["title"]}</a>`
+        if (data["url"] != undefined) {
+            postHeadDiv.innerHTML = `<a href="${data["url"]}">${data["title"]}</a>`
+        } else {
+            postHeadDiv.innerHTML = `<a href="https://news.ycombinator.com/item?id=${id}">${data["title"]}</a>`
+        }
         postBodyDiv.appendChild(postHeadDiv)
 
         if (data["text"] != undefined) {
