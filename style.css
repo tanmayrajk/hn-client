@@ -70,6 +70,10 @@ footer {
     margin-top: 7px;
 }
 
+.posttext a {
+    color: #61afef
+}
+
 
 .postbottom {
     background-color: #494b51;
