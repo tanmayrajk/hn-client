@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+    background-color: #282c34;
+}
+
+main {
+    margin: 20px;
+}
+
+footer {
+    margin: 0 20px 20px 20px;
+}
+
+.btn {
+    background-color: #494b51;
+    color: #61afef;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    transition: 200ms;
+}
+
+.btn:hover {
+    background-color: #3a3c41;
+}
+
+.post {
+    background-color: #3a3c41;
+    margin-bottom: 20px;
+}
+
+.postflex {
+    display: flex;
+}
+
+.postleft {
+    background-color: #89ab70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postleft h4 {
+    color: #eee;
+    padding: 0 15px;
+}
+
+.postbody {
+    align-items: center;
+    padding: 15px;
+}
+
+.posthead a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.posttext {
+    color: #ddd;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+
+.postbottom {
+    background-color: #494b51;
+    padding: 10px;
+}
+
+.postbottom p {
+    color: #ddd;
+    font-size: 13px;
+}
+
+.postbottom p a {
+    color: #61afef;
+}
+
+#navbar {
+    background-color: #3a3c41;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+#navbar header h1 a {
+    text-decoration: none;
+    color: #e5c07b;
+    transition: 100ms;
+    margin-left: 5px;
+}
+
+#navbar header h1 a:hover {
+    text-decoration: none;
+    color: #61afef;
+}
+
+#navlist {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navlistitem {
+    margin-left: 20px;
+}
+
+.navlistitem a {
+    text-decoration: none;
+    color: #eee;
+    transition: 100ms;
+}
+
+.navlistitem a:hover {
+    font-weight: 600;
+    color: #61afef;
+}
