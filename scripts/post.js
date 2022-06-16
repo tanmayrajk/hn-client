@@ -4,7 +4,6 @@ let currentIndex = 0
 export function init(info) {
     getPosts(info["page"]).then(data => {
         posts = data
-        console.log(posts)
         loadPosts(20)
     })
 }
@@ -73,18 +72,14 @@ async function createPost(id) {
         const postBottomInfo = document.createElement("p")
         postBottomInfo.innerHTML = `${data["score"]} points | by <a href="https://news.ycombinator.com/user?id=${data["by"]}">${data["by"]}</a> | <a href="https://news.ycombinator.com/item?id=${id}">discuss</a>`
         postBottomDiv.appendChild(postBottomInfo)
-
-        console.log(data)
     })
 }
 
 async function loadPosts(count) {
     for (let i = 0; i < count; i++) {
-        if (currentIndex <= posts.length - 1) {
+        if (posts[currentIndex] != null) {
             currentIndex += 1
             await createPost(posts[currentIndex - 1])            
-        } else {
-            break
-        }
+        } else break
     }
 }
