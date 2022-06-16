@@ -13,7 +13,7 @@ document.body.addEventListener("touchmove", onScroll)
 
 function onScroll() {
     const { scrollTop, scrollHeight, clientHeight} = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 50) {
+    if (scrollTop + clientHeight >= scrollHeight - 60) {
         loadPosts(10)
     }
 }
