@@ -4,7 +4,7 @@ let currentIndex = 0
 export function init(info) {
     getPosts(info["page"]).then(data => {
         posts = data
-        loadPosts(20)
+        loadPosts(10)
     })
 }
 
@@ -13,9 +13,14 @@ document.body.addEventListener("touchmove", onScroll)
 
 function onScroll() {
     const { scrollTop, scrollHeight, clientHeight} = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 5) {
-        loadPosts(5)
-    }
+    document.getElementById('clientHeight').innerText = clientHeight
+    document.getElementById('scrollTop').innerText = scrollTop
+    document.getElementById('scrollHeight').innerText = scrollHeight
+    document.getElementById('mix').innerText = scrollTop + clientHeight
+    document.getElementById('bool').innerText = (scrollTop + clientHeight >= scrollHeight - 5)
+    // if (scrollTop + clientHeight >= scrollHeight - 5) {
+    //     loadPosts(5)
+    // }
 }
 
 async function getPosts(page) {
