@@ -80,7 +80,11 @@ async function createPost(id) {
 
 async function loadPosts(count) {
     for (let i = 0; i < count; i++) {
-        currentIndex += 1
-        await createPost(posts[currentIndex - 1])
+        if (currentIndex <= posts.length - 1) {
+            currentIndex += 1
+            await createPost(posts[currentIndex - 1])            
+        } else {
+            break
+        }
     }
 }
