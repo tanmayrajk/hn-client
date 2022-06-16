@@ -15,13 +15,6 @@ main {
     margin: 20px;
 }
 
-.test {
-    position: fixed;
-    background-color: #282c34;
-    color: #eee;
-    padding: 20px;
-}
-
 .post {
     background-color: #3a3c41;
     margin-bottom: 20px;
