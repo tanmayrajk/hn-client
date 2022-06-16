@@ -17,7 +17,7 @@ function onScroll() {
     document.getElementById('scrollTop').innerText = scrollTop
     document.getElementById('scrollHeight').innerText = scrollHeight
     document.getElementById('mix').innerText = scrollTop + clientHeight
-    document.getElementById('bool').innerText = (scrollTop + clientHeight >= scrollHeight - 5)
+    document.getElementById('bool').innerText = (scrollTop + clientHeight >= scrollHeight - 100)
     // if (scrollTop + clientHeight >= scrollHeight - 5) {
     //     loadPosts(5)
     // }
