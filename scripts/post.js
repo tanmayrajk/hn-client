@@ -10,8 +10,8 @@ export function init(info) {
 
 window.addEventListener('scroll', () => {
     const { scrollTop, scrollHeight, clientHeight} = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight) {
-        loadPosts(20)
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+        loadPosts(5)
     }}, { passive: true });
 
 async function getPosts(page) {
