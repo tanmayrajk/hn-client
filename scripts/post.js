@@ -4,22 +4,27 @@ let currentIndex = 0
 export function init(info) {
     getPosts(info["page"]).then(data => {
         posts = data
+        console.log(posts)
         loadPosts(20)
     })
 }
 
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", onScroll)
+document.body.addEventListener("touchmove", onScroll)
+
+function onScroll() {
     const { scrollTop, scrollHeight, clientHeight} = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight - 5) {
         loadPosts(5)
-    }}, { passive: true });
+    }
+}
 
 async function getPosts(page) {
     let res = await fetch(`https://hacker-news.firebaseio.com/v0/${page}stories.json`)
     return res.json()
 }
 
-async function createPost(id, index) {
+async function createPost(id) {
     let res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
     res.json()
     .then(data => {
@@ -40,17 +45,14 @@ async function createPost(id, index) {
         postBottomDiv.className = "postbottom"
         postDiv.appendChild(postBottomDiv)
 
-        const postLeftDiv = document.createElement("div")
-        postLeftDiv.className = "postleft"
-        postFlexDiv.appendChild(postLeftDiv)
+        const postIdentifierDiv = document.createElement("div")
+        postIdentifierDiv.className = "postidentifier"
+        postFlexDiv.appendChild(postIdentifierDiv)
+
 
         const postBodyDiv = document.createElement("div")
         postBodyDiv.className = "postbody"
         postFlexDiv.appendChild(postBodyDiv)
-
-        const postIndex = document.createElement("h4")
-        postIndex.innerText = index
-        postLeftDiv.appendChild(postIndex)
 
         const postHeadDiv = document.createElement("h4")
         postHeadDiv.className = "posthead"
@@ -79,6 +81,6 @@ async function createPost(id, index) {
 async function loadPosts(count) {
     for (let i = 0; i < count; i++) {
         currentIndex += 1
-        await createPost(posts[currentIndex-1], currentIndex)
+        await createPost(posts[currentIndex - 1])
     }
 }

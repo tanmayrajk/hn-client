@@ -59,20 +59,14 @@ main {
     display: flex;
 }
 
-.postleft {
+.postidentifier {
     background-color: #89ab70;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.postleft h4 {
-    color: #eee;
-    padding: 0 15px;
+    padding: 0px 5px;
 }
 
 .postbody {
     padding: 15px;
+    line-height: 1;
 }
 
 .posthead a {
