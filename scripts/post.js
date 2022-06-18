@@ -56,11 +56,6 @@ function createPost(id, title, url, type, by, text, score) {
     postBottomDiv.className = "postbottom"
     postDiv.appendChild(postBottomDiv)
 
-    const postIdentifierDiv = document.createElement("div")
-    postIdentifierDiv.className = "postidentifier"
-    postFlexDiv.appendChild(postIdentifierDiv)
-
-
     const postBodyDiv = document.createElement("div")
     postBodyDiv.className = "postbody"
     postFlexDiv.appendChild(postBodyDiv)
